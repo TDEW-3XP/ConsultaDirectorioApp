@@ -1,0 +1,46 @@
+
+<% content_for :body do %>
+ <h1>Usuarios registrados</h1>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Nombres</th>
+      <th>Usuario</th>
+      <th>Direccion</th>
+      <th>Distrito</th>
+      <th>Telefono</th>
+      <th>Celular</th>
+      <th>Email</th>
+      <th>Observaciones</th>
+      <th>Fec nacimiento</th>
+      <th>Accion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @usuarios.each do |usuario| %>
+      <tr>
+        <td><%= usuario.id %></td>
+        <td><%= usuario.nombre %> &nbsp; <%= usuario.ape_pate %> </td>
+        <td><%= usuario.user %></td>
+        <td><%= usuario.direccion %></td>
+        <td><%= usuario.distrito %></td>
+        <td><%= usuario.telefono %></td>
+        <td><%= usuario.celular %></td>
+        <td><%= usuario.email %></td>
+        <td><%= usuario.observaciones %></td>
+        <td><%= usuario.fec_nacimiento %></td>
+        <td><%= link_to 'Ver', usuario %></td>
+        <td>
+          <%= link_to 'Editar', edit_usuario_path(usuario) %>
+          <%= link_to 'Eliminar', usuario, :confirm => 'Are you sure?', :method => :destroy %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="well">
+  <%= link_to 'Nuevo Usuario', usuarionew_path(@usuario), :class => 'btn btn-primary' %>
+</div>
+<% end %>
