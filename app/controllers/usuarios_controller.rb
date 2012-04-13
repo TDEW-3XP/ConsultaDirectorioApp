@@ -1,4 +1,33 @@
 class UsuariosController < ApplicationController
+   USER_ID, PASSWORD = "admin", "admin64"
+
+  # Requiere autenticacion solo para admin, crear y editar
+  before_filter :authenticate, :only => [:index, :new, :edit ]
+
+  # GET /search
+  # GET /search.json
+  def search
+    @search = Usuario.search(params[:search])   
+    @usuarios = @search.all
+
+    respond_to do |format|
+      format.html # search.html.erb
+      format.json  { render :json => @usuarios }
+    end
+  end
+
+  # GET /validafecha
+  # GET /validafecha.json
+  def search
+    @search = Usuario.search(params[:search])   
+    @usuarios = @search.all
+
+    respond_to do |format|
+      format.html # validafecha.html.erb
+      format.json  { render :json => @usuarios }
+    end
+  end
+
   # GET /usuarios
   # GET /usuarios.json
   def index
@@ -44,7 +73,7 @@ class UsuariosController < ApplicationController
 
     respond_to do |format|
       if @usuario.save
-        format.html { redirect_to @usuario, notice: 'Usuario was successfully created.' }
+        format.html { redirect_to @usuario, notice: 'Usuario creado con exito.' }
         format.json { render json: @usuario, status: :created, location: @usuario }
       else
         format.html { render action: "new" }
@@ -80,4 +109,11 @@ class UsuariosController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def authenticate
+      authenticate_or_request_with_http_basic do |id, password| 
+          id == USER_ID && password == PASSWORD
+      end
+   end
+
 end

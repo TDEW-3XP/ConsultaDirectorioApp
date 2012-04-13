@@ -11,7 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120330101743) do
+ActiveRecord::Schema.define(:version => 20120412070707) do
+
+  create_table "grupos", :force => true do |t|
+    t.string   "nombre"
+    t.string   "descripcion"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "rols", :force => true do |t|
+    t.string   "nombre"
+    t.string   "descripcion"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "rols_usuarios", :id => false, :force => true do |t|
+    t.integer  "rol_id"
+    t.integer  "usuario_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "usuarios", :force => true do |t|
     t.string   "nombre"
@@ -26,6 +47,9 @@ ActiveRecord::Schema.define(:version => 20120330101743) do
     t.string   "email"
     t.string   "observaciones"
     t.datetime "fec_nacimiento"
+    t.integer  "grupo_id"
+    t.integer  "usuario_id"
+    t.integer  "rol_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end

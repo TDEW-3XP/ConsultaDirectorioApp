@@ -1,0 +1,39 @@
+
+<% content_for :body do %>
+ <h1>Busqueda de Jefes asociados a Emabajadas</h1>
+  <%= form_for @search do |f| %>   
+     <p>   
+    <%= f.label :Nombre %>   
+    <%= f.text_field :nombre_contains %>   
+    </p>    
+    <%= link_to 'Busqueda', usuariolist_path(@search), :class => 'btn btn-primary' %> 
+<% end %> 
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Nombres</th>
+      <th>Direccion</th>
+      <th>Distrito</th>
+      <th>Telefono</th>
+      <th>Celular</th>
+      <th>Email</th>
+      <th>Accion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @usuarios.each do |usuario| %>
+      <tr>
+        <td><%= usuario.nombre %> &nbsp; <%= usuario.ape_pate %> </td>
+        <td><%= usuario.direccion %></td>
+        <td><%= usuario.distrito %></td>
+        <td><%= usuario.telefono %></td>
+        <td><%= usuario.celular %></td>
+        <td><%= usuario.email %></td>
+        <td><%= link_to 'Ver Datos', usuario %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+ 
+<% end %>

@@ -13,7 +13,9 @@ class CreateUsuarios < ActiveRecord::Migration
       t.string :email
       t.string :observaciones
       t.datetime :fec_nacimiento
-
+      t.integer :grupo_id
+      t.integer :usuario_id
+      t.integer :rol_id
       t.timestamps
     end
   end

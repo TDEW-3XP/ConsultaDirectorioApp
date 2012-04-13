@@ -1,0 +1,14 @@
+<% content_for :body do %>
+<%= simple_form_for @usuario, :html => { :class => 'form-horizontal' } do |f| %>
+
+
+  <%= f.input :fec_nacimiento, :as => :date, :required => true, :order => [:day, :month, :year], :wrapper => :prepend, :label => false do %>
+    <%= content_tag :span, "Fecha de Nac.", :class => "add-on" %>
+    <%= f.input_field :fec_nacimiento , :as => :date , :order => [:day, :month, :year], :class => "field-date" %>
+  
+   <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= submit_tag 'Cancel', :type => :reset, :class => "btn btn-danger" %>
+  </div>
+ <% end %>
+ <% end %>

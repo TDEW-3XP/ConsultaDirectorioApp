@@ -7,6 +7,9 @@ gem 'rails', '3.2.2'
 
 gem 'sqlite3'
 gem 'simple_form', '~> 2.0.0'
+gem 'meta_search'
+gem 'rufus-scheduler'
+gem 'oauth'
 
 # Gems used only for assets and not required
 # in production environments by default.

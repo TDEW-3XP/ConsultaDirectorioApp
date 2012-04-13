@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+Rol.create(nombre:'Jefe',descripcion:'Encargado de gestionar la emabajada')
+Rol.create(nombre:'SubJefe',descripcion:'Encargado de gestionar tramites de la emabajada')
+Rol.create(nombre:'Usuario',descripcion:'Usuario')
+
+Grupo.create(nombre:'Embajada Bolivia',descripcion:'Grupo encargado de la embajada de bolivia')
+Grupo.create(nombre:'Embajada Brasil',descripcion:'Grupo encargado de la embajada de brasil')

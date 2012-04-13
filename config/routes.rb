@@ -1,10 +1,11 @@
 Consultadatosapp::Application.routes.draw do
   
-
-
-   match "usuariolist" => "usuarios#index"
+   match 'usuariolist' => 'usuarios#search'
+   match 'usuariovalida' => 'usuarios#valida'
    match "usuarionew" => "usuarios#new"
-   resources :usuarios
+   match "paginaprincipal" => "navigation#index"
+   match 'admin' => 'usuarios#index'  
+  
 
    root :to => 'navigation#index'
 
