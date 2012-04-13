@@ -1,0 +1,59 @@
+<html>  
+<head>  
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">  
+<title>Ejemplo de uso - API Google Maps - CLH</title>  
+ 
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAAHhzikxCQyRAS8ryQoB75mRT2yXp_ZAY8_ufC3CFXhHIE1NvwkxQiqBRnE1Iky5sZfKGxzYbUanZ0HA" type="text/javascript"></script>  
+<script type="text/javascript">  
+  
+function inicializar() {  
+if (GBrowserIsCompatible()) {  
+var map = new GMap2(document.getElementById("map"));  
+map.setCenter(new GLatLng(-12.110306, -77.014074), 15);  
+map.addControl(new GMapTypeControl());  
+map.addControl(new GLargeMapControl());  
+map.addControl(new GScaleControl());  
+map.addControl(new GOverviewMapControl()); 
+
+var placeIcon = new GIcon(G_DEFAULT_ICON);placeIcon.image = "http://icdn.pro/images/es/d/e/de-alta-seguridad-icono-4781-96.png";   
+placeIcon.iconSize = new GSize(80, 80);             
+markerOptions = { icon:placeIcon };
+function informacion(ubicacion, descripcion) {  
+ 
+var marca = new GMarker(ubicacion,markerOptions);  
+GEvent.addListener(marca, "click", function() {  
+marca.openInfoWindowHtml(descripcion); } );  
+  
+return marca;  
+ 
+}  
+var bounds = map.getBounds();
+        var southWest = bounds.getSouthWest();
+        var northEast = bounds.getNorthEast();
+        var lngSpan = northEast.lng() - southWest.lng();
+        var latSpan = northEast.lat() - southWest.lat();
+
+//var direcc ="republica de panama 3515 san isidro"
+/*var lngDirecc = direcc.lng();
+var latDirecc = direcc.lat();
+var ubicacion = new GLatLng(latDirecc, lngDirecc);*/
+//var ubicacion = new GLatLng(-12.110306, -77.014074);  
+var ubicacion = new GLatLng(southWest.lat() + latSpan, southWest.lng() + lngSpan);
+var descripcion = '<b>Lugar de reunion del grupo<br />';  
+var marca = informacion(ubicacion, descripcion);  
+  
+map.addOverlay(marca);  
+  
+}  
+}  
+  
+</script>  
+  
+</head>  
+<body>  
+<center><div></div></center>
+<center><div id="map" style="width:400px; height:400px"></center>  
+<script type="text/javascript">inicializar();</script>  
+</div>  
+</body>  
+</html>  
