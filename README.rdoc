@@ -19,3 +19,12 @@ http://consultadatos.herokuapp.com/usuarios
 IV.- LeanCanvas
 
 http://leancanvas.com/canvases/13091
+
+V.- UserStories:
+
+a) Como usuario visitante deseo consultar a que grupo pertenezco, que jefe y subjefe están asignados al grupo para comunicarse con el y saber a donde acudir en caso de algún desastre natural; además de  poder vizualisar el lugar mediante un mapa.
+
+b) Como usuario visitante debe validar su fecha de nacimiento para poder realizar la consulta.
+
+c) Cuando ingrese a la la pagina principal, ingresare a la opcion de admin y me autenticare al sistema con mis credenciales 
+Cuando me he autenticado, el sistema mostrara la lista de usuarios visitantes, tendren la posibilidad de editar, eliminar y agregar un nuevo usuario visitante"
